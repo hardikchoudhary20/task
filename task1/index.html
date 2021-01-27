@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 Everlytics </title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        label {
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+
+        input {
+            width: 50%;
+            margin-top: 10px;
+            background-color: lightsteelblue;
+            padding: 5px 10px;
+        }
+
+        input::placeholder {
+            color: gray;
+        }
+
+        button {
+            background-color: #008CBA;
+
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: lightsteelblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form id="form"
+        style="border: solid black 2px; display:inline-block; padding: 10px 10px 10px 10px; margin: 10px 10px 10px 10px;">
+        <label for="selectile">
+            Select your source:
+            <input type="file" class="input">
+        </label>
+        <br>
+        <br>
+
+        <label for="nameforpipeline">
+            Provide a name for pipeline:
+            <input type="text" name="nameforpipeline" placeholder="e.g., cust_shop_energy_gateway001" class="input"
+                id="pipeline">
+        </label>
+        <br>
+        <br>
+
+        <label for="GCS_project_name">
+            GCS project name:
+            <input type="text" placeholder="project-id" class="input" id="projectName">
+        </label>
+
+        <br>
+        <br>
+
+        <label for="GCS_bucket_name">
+            GCS bucket name :
+            <input type="text" placeholder="gs://your-bucket" class="input" id="bucketName">
+        </label>
+
+
+        <br>
+        <br>
+
+        <label for="Input_Cloud_Storage_File">
+            Input Cloud Storage File(s) :
+            <input type="text" placeholder="GCS location of your files" class="input" id="cloudStorage">
+            <br>
+            <span style="margin-left: 190px; color: #cdcdcd;">
+
+                Example: gs://your-bucket/your-files/01.csv</span>
+        </label>
+        <br>
+        <br>
+
+        <label for="GCS_credentials">
+            GCS credentials :
+            <input type="text" id="credentials">
+        </label>
+        <br>
+        <br>
+
+        <label for="Run_every">
+            Run every:
+            <input type="text" placeholder="(in minutes)" class="input">
+
+
+
+
+        </label>
+
+
+        <br>
+        <br>
+        <button type="submit" onclick="validate()" id="submit">Create</button>
+        <button type="reset" style="width:50%">Cancel</button>
+        <br>
+        <br>
+        <hr>
+
+    </form>
+    <script>
+        function validate() {
+
+var inputv = document.getElementsByClassName("input")
+
+var a = document.getElementById("pipeline").value
+var b = document.getElementById("projectName").value
+var c = document.getElementById("bucketName").value
+var d = document.getElementById("credentials").value
+var e = document.getElementById("cloudStorage").value
+
+
+if (a.length < 5 || b.length < 5 || c.length < 5 || d.length < 5 || d.length < 5) {
+    alert("Your input length should be greater than 5")
+    // document.getElementsById("form").style.border="2px solid red"
+}
+
+else if (/[^a-zA-Z0-9\-\/]/.test(a)) {
+    alert('No special character allowed');
+    return false;
+}
+else if (/[^a-zA-Z0-9\-\/]/.test(b)) {
+    alert('No special character allowed');
+    return false;
+}
+else if (/[^a-zA-Z0-9\-\/]/.test(c)) {
+    alert('No special character allowed');
+    return false;
+}
+else if (/[^a-zA-Z0-9\-\/]/.test(d)) {
+    alert('No special character allowed');
+    return false;
+}
+else if (/[^a-zA-Z0-9\-\/]/.test(e)) {
+    alert('No special character allowed');
+    return false;
+}
+}
+    </script>
+
+</body>
+
+</html>
